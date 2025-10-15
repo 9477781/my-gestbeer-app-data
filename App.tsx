@@ -188,10 +188,18 @@ const App: React.FC = () => {
       setLang(urlLang);
     }
     
-    // Githubから直接JSONを取得
+    // Githubから直接JSONを取得（キャッシュバスター付き）
     const fetchBeerData = async () => {
       try {
-        const response = await fetch('https://raw.githubusercontent.com/9477781/my-gestbeer-app-data/main/data/beers.json');
+        // タイムスタンプを追加してキャッシュを回避
+        const timestamp = new Date().getTime();
+        const response = await fetch(`https://raw.githubusercontent.com/9477781/my-gestbeer-app-data/main/data/beers.json?t=${timestamp}`, {
+          cache: 'no-store',  // キャッシュを使用しない
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
