@@ -14,7 +14,16 @@
     "特徴1": "香り＝南国系の甘いフルーツ、ほのかに桃のアロマ",
     "特徴2": "特徴＝しっかりめの苦みと酸味、グレープフルーツピールを思わせる爽快さ。82ブランド20周年記念コラボビール第二弾！",
     "特徴3": "",
-    "販売店舗": []
+    "販売店舗": [
+      {
+        "店舗名": "８２神田店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/33"
+      },
+      {
+        "店舗名": "８２品川店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/35"
+      }
+    ]
   },
   {
     "順番": 2,
@@ -32,24 +41,78 @@
     "特徴2": "味わい＝華やかに香り心地よく苦い、軽快にグビグビ飲めますが尾を引くキレイな苦みが癖になり、食欲を引き立てます。スワンレイクビール本田ヘッドブルワーとFUJI PREMIUM BREWING有賀ヘッドブルワーのコラボレーションで実現した８２ブランド20周年記念ビールです。",
     "特徴3": "美味しい！",
     "販売店舗": [
-      "８２神田店",
-      "８２品川店",
-      "８２赤坂店",
-      "８２関内店",
-      "８２三田店",
-      "８２浜松町店",
-      "８２新宿三丁目店",
-      "８２AKIBA TOLIM店",
-      "８２築地店",
-      "８２新宿西口大ガード店",
-      "８２東銀座店",
-      "８２ロッテシティホテル錦糸町店",
-      "８２渋谷宮益坂店",
-      "８２五反田西口店",
-      "８２横浜西口店",
-      "HUB東京オペラシティ店",
-      "HUB藤沢店",
-      "HUB川口店"
+      {
+        "店舗名": "８２神田店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/33"
+      },
+      {
+        "店舗名": "８２品川店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/35"
+      },
+      {
+        "店舗名": "８２赤坂店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/38"
+      },
+      {
+        "店舗名": "８２関内店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/39"
+      },
+      {
+        "店舗名": "８２三田店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/41"
+      },
+      {
+        "店舗名": "８２浜松町店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/43"
+      },
+      {
+        "店舗名": "８２新宿三丁目店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/44"
+      },
+      {
+        "店舗名": "８２AKIBA TOLIM店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/47"
+      },
+      {
+        "店舗名": "８２築地店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/53"
+      },
+      {
+        "店舗名": "８２新宿西口大ガード店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/58"
+      },
+      {
+        "店舗名": "８２東銀座店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/60"
+      },
+      {
+        "店舗名": "８２ロッテシティホテル錦糸町店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/62"
+      },
+      {
+        "店舗名": "８２渋谷宮益坂店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/66"
+      },
+      {
+        "店舗名": "８２五反田西口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/67"
+      },
+      {
+        "店舗名": "８２横浜西口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/73"
+      },
+      {
+        "店舗名": "HUB東京オペラシティ店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/16"
+      },
+      {
+        "店舗名": "HUB藤沢店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/103"
+      },
+      {
+        "店舗名": "HUB川口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/105"
+      }
     ]
   },
   {
@@ -68,8 +131,14 @@
     "特徴2": "",
     "特徴3": "",
     "販売店舗": [
-      "HUB藤沢店",
-      "HUB川口店"
+      {
+        "店舗名": "HUB藤沢店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/103"
+      },
+      {
+        "店舗名": "HUB川口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/105"
+      }
     ]
   },
   {
@@ -88,23 +157,74 @@
     "特徴2": "味わい＝苦い",
     "特徴3": "",
     "販売店舗": [
-      "８２神田店",
-      "８２赤坂店",
-      "８２関内店",
-      "８２三田店",
-      "８２浜松町店",
-      "８２新宿三丁目店",
-      "８２AKIBA TOLIM店",
-      "８２築地店",
-      "８２新宿西口大ガード店",
-      "８２東銀座店",
-      "８２ロッテシティホテル錦糸町店",
-      "８２渋谷宮益坂店",
-      "８２五反田西口店",
-      "８２横浜西口店",
-      "HUB東京オペラシティ店",
-      "HUB藤沢店",
-      "HUB川口店"
+      {
+        "店舗名": "８２神田店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/33"
+      },
+      {
+        "店舗名": "８２赤坂店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/38"
+      },
+      {
+        "店舗名": "８２関内店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/39"
+      },
+      {
+        "店舗名": "８２三田店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/41"
+      },
+      {
+        "店舗名": "８２浜松町店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/43"
+      },
+      {
+        "店舗名": "８２新宿三丁目店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/44"
+      },
+      {
+        "店舗名": "８２AKIBA TOLIM店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/47"
+      },
+      {
+        "店舗名": "８２築地店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/53"
+      },
+      {
+        "店舗名": "８２新宿西口大ガード店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/58"
+      },
+      {
+        "店舗名": "８２東銀座店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/60"
+      },
+      {
+        "店舗名": "８２ロッテシティホテル錦糸町店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/62"
+      },
+      {
+        "店舗名": "８２渋谷宮益坂店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/66"
+      },
+      {
+        "店舗名": "８２五反田西口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/67"
+      },
+      {
+        "店舗名": "８２横浜西口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/73"
+      },
+      {
+        "店舗名": "HUB東京オペラシティ店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/16"
+      },
+      {
+        "店舗名": "HUB藤沢店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/103"
+      },
+      {
+        "店舗名": "HUB川口店",
+        "店舗URL": "https://www.pub-hub.com/index.php/shop/detail/105"
+      }
     ]
   }
 ]
