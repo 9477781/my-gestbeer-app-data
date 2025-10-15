@@ -24,7 +24,7 @@ interface RawBeerData {
   '画像URL': string;
   'USPINTグラス価格': number;
   'ハッピー価格'?: number;
-  'UK/2PINTグラス価格': number;
+  'UK1/2PINTグラス価格': number;
   'アルコール度数': number | string;
   'タイプ': string;
   'IBU': number;
@@ -62,7 +62,6 @@ const translateStoreName = (jaName: string): string => {
     // Fallback for any new stores not in the map
     return storeMap[jaName] || jaName.replace(/店$/, ' branch').replace('８２', '82');
 };
-
 
 const StoreList: React.FC<{ type: 'HUB' | '82', stores: StoreInfo[], lang: Language }> = ({ type, stores, lang }) => (
     <div className="mt-8">
@@ -178,7 +177,8 @@ const BeerInfoSection: React.FC<{ beerData: BeerWithStores, lang: Language }> = 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('ja');
   const [rawBeers, setRawBeers] = useState<RawBeerData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -187,33 +187,27 @@ const App: React.FC = () => {
     if (urlLang === 'en' || urlLang === 'ja') {
       setLang(urlLang);
     }
-    
-    // Githubから直接JSONを取得（キャッシュバスター付き）
-    const fetchBeerData = async () => {
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        // タイムスタンプを追加してキャッシュを回避
-        const timestamp = new Date().getTime();
-        const response = await fetch(`https://raw.githubusercontent.com/9477781/my-gestbeer-app-data/main/data/beers.json?t=${timestamp}`, {
-          cache: 'no-store',  // キャッシュを使用しない
-          headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache'
-          }
-        });
+        const response = await fetch('https://raw.githubusercontent.com/9477781/my-gestbeer-app-data/main/data/beers.json');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const beerData: RawBeerData[] = await response.json();
-        setRawBeers(beerData);
+        const data: RawBeerData[] = await response.json();
+        setRawBeers(data);
         setLastUpdated(new Date());
-      } catch (error) {
-        console.error("Failed to fetch guest beer data from GitHub", error);
+      } catch (e) {
+        console.error("Failed to fetch guest beer data:", e);
+        setError("Failed to load beer data. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchBeerData();
+    fetchData();
   }, []);
   
   const formattedDate = useMemo(() => {
@@ -293,6 +287,46 @@ const App: React.FC = () => {
   }, [rawBeers, lang]);
 
 
+  const renderContent = () => {
+    if (loading) {
+      return (
+        <p className="text-center text-xl text-gray-500 py-20">
+          {lang === 'ja' ? 'ゲストビール情報を読み込んでいます...' : 'Loading guest beer information...'}
+        </p>
+      );
+    }
+    if (error) {
+      return (
+        <div className="text-center text-xl text-red-600 py-20">
+          <p>{lang === 'ja' ? '情報の読み込みに失敗しました。' : 'Failed to load information.'}</p>
+          <p>{lang === 'ja' ? '時間をおいて再度お試しください。' : 'Please try again later.'}</p>
+        </div>
+      );
+    }
+    if (rawBeers.length > 0) {
+      return (
+        <>
+          {beersWithStores.map((beerData, index) => (
+              <React.Fragment key={beerData.details.id}>
+                  {index > 0 && <hr className="my-16 border-gray-300" />}
+                  <BeerInfoSection beerData={beerData} lang={lang} />
+              </React.Fragment>
+          ))}
+          <div className="text-lg text-gray-600 mt-8 space-y-2">
+              <p>{lang === 'ja' ? '※在庫状況により、販売しているゲストビールは異なります。' : '*Guest beers on sale may vary depending on stock.'}</p>
+              <p>{lang === 'ja' ? '※より詳細な情報を知りたい方は直接店舗までお問合せ下さい。' : '*For more detailed information, please contact the store directly.'}</p>
+          </div>
+        </>
+      );
+    }
+    return (
+      <p className="text-center text-gray-500 py-20">
+        {lang === 'ja' ? '現在利用可能なゲストビール情報はありません。' : 'No guest beer information available at the moment.'}
+      </p>
+    );
+  };
+
+
   return (
     <div className="bg-white text-gray-800">
       <Header lang={lang} setLang={setLang} />
@@ -301,24 +335,7 @@ const App: React.FC = () => {
             {lastUpdated && (
                 <p className="text-right text-lg text-gray-500 mb-8">{formattedDate}</p>
             )}
-            {loading ? (
-              <p className="text-center">Loading guest beers...</p>
-            ) : rawBeers.length > 0 ? (
-              <>
-                {beersWithStores.map((beerData, index) => (
-                    <React.Fragment key={beerData.details.id}>
-                        {index > 0 && <hr className="my-16 border-gray-300" />}
-                        <BeerInfoSection beerData={beerData} lang={lang} />
-                    </React.Fragment>
-                ))}
-                <div className="text-lg text-gray-600 mt-8 space-y-2">
-                    <p>{lang === 'ja' ? '※在庫状況により、販売しているゲストビールは異なります。' : '*Guest beers on sale may vary depending on stock.'}</p>
-                    <p>{lang === 'ja' ? '※より詳細な情報を知りたい方は直接店舗までお問合せ下さい。' : '*For more detailed information, please contact the store directly.'}</p>
-                </div>
-              </>
-            ) : (
-              <p className="text-center text-gray-500">No guest beer information available at the moment.</p>
-            )}
+            {renderContent()}
         </div>
       </main>
     </div>
