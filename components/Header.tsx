@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 type Language = 'ja' | 'en';
@@ -19,10 +20,10 @@ const Header: React.FC<HeaderProps> = ({ lang, setLang }) => {
     };
 
     return (
-        <header className="relative h-48 bg-gray-800 text-white overflow-hidden">
+        <header className="relative h-64 bg-gray-800 text-white overflow-hidden">
             <button
                 onClick={toggleLanguage}
-                className="absolute top-4 right-4 z-10 bg-white/20 backdrop-blur-sm hover:bg-white/40 text-white font-bold py-2 px-4 rounded-full transition-colors text-sm"
+                className="absolute top-5 right-5 z-10 bg-white/20 backdrop-blur-sm hover:bg-white/40 text-white font-bold py-2 px-5 rounded-full transition-colors text-xl"
                 aria-label="Toggle language"
             >
                 {lang === 'ja' ? 'ENGLISH' : '日本語'}
@@ -40,8 +41,8 @@ const Header: React.FC<HeaderProps> = ({ lang, setLang }) => {
 
             {/* Text Content */}
             <div className="relative h-full flex flex-col justify-center items-center text-center px-4">
-                <h2 className="font-display text-5xl font-bold tracking-wider">GUEST BEER</h2>
-                <p className="mt-2 text-lg">ゲストビール</p>
+                <h2 className="font-display text-9xl font-bold tracking-wider">GUEST BEER</h2>
+                <p className="mt-2 text-4xl">ゲストビール</p>
             </div>
         </header>
     );

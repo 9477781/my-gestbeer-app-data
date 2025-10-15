@@ -17,7 +17,9 @@ export interface BeerDetails {
   image_url: string;
 }
 
-export interface GuestBeerMasterData {
-  stores: Record<string, string>; // store name -> store URL
-  beers: (BeerDetails & { available_at: string[] })[];
+export interface StoreData {
+  store: string;
+  area: string;
+  store_url: string;
+  beers: BeerDetails[];
 }
