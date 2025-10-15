@@ -188,18 +188,24 @@ const App: React.FC = () => {
       setLang(urlLang);
     }
     
-    try {
-      const dataEl = document.getElementById('guest-beer-data');
-      if (dataEl) {
-        const beerData: RawBeerData[] = JSON.parse(dataEl.textContent || '[]');
+    // Githubから直接JSONを取得
+    const fetchBeerData = async () => {
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/9477781/my-gestbeer-app-data/main/data/beers.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const beerData: RawBeerData[] = await response.json();
         setRawBeers(beerData);
         setLastUpdated(new Date());
+      } catch (error) {
+        console.error("Failed to fetch guest beer data from GitHub", error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Failed to parse guest beer data", error);
-    } finally {
-      setLoading(false);
-    }
+    };
+
+    fetchBeerData();
   }, []);
   
   const formattedDate = useMemo(() => {
